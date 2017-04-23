@@ -29,7 +29,7 @@ class LinkedList
       end
     end
     prev_node = get(index - 1)
-    old_node = get(index)
+    old_node = prev_node.next
     prev_node.next = node
     node.next = old_node
   end
