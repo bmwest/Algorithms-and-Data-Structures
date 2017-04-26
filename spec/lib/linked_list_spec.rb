@@ -33,8 +33,8 @@ RSpec.describe LinkedList do
     end
   end
 
-  describe "insert a node at 0 and 1" do
-    it "should insert a node at a given index" do
+  describe "insert a Node at 0 and 1" do
+    it "should insert a Node at a given index" do
       list.insert(0, node)
       list.insert(1, node2)
       expect(list.get(0).data).to eq("zero")
@@ -43,8 +43,8 @@ RSpec.describe LinkedList do
     end
   end
 
-  describe "insert a node at 0 and 0" do
-    it "should insert a node at a given index" do
+  describe "insert a Node at 0 and 0" do
+    it "should insert a Node at a given index" do
       list.insert(0, node)
       list.insert(0, node2)
       expect(list.get(0).data).to eq("one")
@@ -53,8 +53,8 @@ RSpec.describe LinkedList do
     end
   end
 
-  describe "insert a node at indices 1-5" do
-    it "should insert a node at a given index" do
+  describe "insert a Node at indices 1-5" do
+    it "should insert a Node at a given index" do
       list.insert(0, node)
       list.insert(1, node2)
       list.insert(2, node3)
@@ -68,7 +68,7 @@ RSpec.describe LinkedList do
       expect(list.size).to eq(5)
     end
 
-    it "should reassign a given index and adjust the previous node's link" do
+    it "should reassign a given index and adjust the previous Node's link" do
       list.insert(0, node)
       list.insert(1, node2)
       list.insert(2, node3)
@@ -83,4 +83,34 @@ RSpec.describe LinkedList do
     end
   end
 
+  describe "delete" do
+    it "should remove a Node from the list" do
+      list.insert(0, node)
+      list.insert(1, node2)
+      list.insert(2, node3)
+      list.insert(3, node4)
+      list.delete(2)
+      expect(list.size).to eq(3)
+      expect(list.get(1).next.data).to eq("three")
+    end
+
+    it "should assign a new head when given an index of 0" do
+      list.insert(0, node)
+      list.insert(1, node2)
+      list.insert(2, node3)
+      list.delete(0)
+      expect(list.size).to eq(2)
+      expect(list.head.data).to eq("one")
+    end
+
+    it "should assign a new tail when the last item is deleted" do
+      list.insert(0, node)
+      list.insert(1, node2)
+      list.insert(2, node3)
+      list.insert(3, node4)
+      list.delete(3)
+      expect(list.size).to eq(3)
+      expect(list.get((list.size - 1)).data).to eq("two")
+    end
+  end
 end

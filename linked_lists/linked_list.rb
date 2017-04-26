@@ -1,6 +1,8 @@
 require_relative 'node'
 
 class LinkedList
+  attr_accessor :head
+
   def initialize
     @head = nil
   end
@@ -40,5 +42,18 @@ class LinkedList
       currentNode = currentNode.next
     end
     return currentNode
+  end
+
+  def delete(index)
+    if index == 0
+      old_head = @head
+      @head = old_head.next
+      return old_head.next = nil
+    end
+    node1 = get(index - 1)
+    old_node = node1.next
+    node2 = old_node.next
+    node1.next = node2
+    old_node.next = nil
   end
 end
