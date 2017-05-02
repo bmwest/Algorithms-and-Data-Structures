@@ -123,7 +123,9 @@ RSpec.describe LinkedList do
       expect(list.get(2).data).to eq("two")
 
       list.replace(2, node5)
+      expect(list.size).to eq(4)
       expect(list.get(2).data).to eq("four")
+      expect(list.get(2).next.data).to eq("three")
     end
   end
 end

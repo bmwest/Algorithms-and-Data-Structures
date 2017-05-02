@@ -56,4 +56,11 @@ class LinkedList
     node1.next = node2
     old_node.next = nil
   end
+
+  def replace(index, node)
+    prev_node = get(index) #head
+    prev_node_index = index # 0
+    delete(prev_node_index)
+    new_node = insert(index, node)
+  end
 end
