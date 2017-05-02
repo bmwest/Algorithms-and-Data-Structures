@@ -113,4 +113,17 @@ RSpec.describe LinkedList do
       expect(list.get((list.size - 1)).data).to eq("two")
     end
   end
+
+  describe "replace" do
+    it "should assign new data to a given index" do
+      list.insert(0, node)
+      list.insert(1, node2)
+      list.insert(2, node3)
+      list.insert(3, node4)
+      expect(list.get(2).data).to eq("two")
+
+      list.replace(2, node5)
+      expect(list.get(2).data).to eq("four")
+    end
+  end
 end
