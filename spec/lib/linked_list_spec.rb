@@ -128,4 +128,21 @@ RSpec.describe LinkedList do
       expect(list.get(2).next.data).to eq("three")
     end
   end
+
+  describe "reverse" do
+    it "should reverse the order of all nodes in a list" do
+      list.insert(0, node)
+      list.insert(1, node2)
+      list.insert(2, node3)
+      list.insert(3, node4)
+      list.insert(4, node5)
+      list.reverse
+      expect(list.get(0).data).to eq("four")
+      expect(list.get(1).data).to eq("three")
+      expect(list.get(2).data).to eq("two")
+      expect(list.get(3).data).to eq("one")
+      expect(list.get(4).data).to eq("zero")
+      expect(list.size).to eq(5)
+    end
+  end
 end

@@ -1,4 +1,5 @@
 require_relative 'node'
+require 'pry'
 
 class LinkedList
   attr_accessor :head
@@ -58,8 +59,8 @@ class LinkedList
   end
 
   def replace(index, node)
-    prev_node = get(index) #head
-    prev_node_index = index # 0
+    prev_node = get(index)
+    prev_node_index = index
     delete(prev_node_index)
     new_node = insert(index, node)
   end
