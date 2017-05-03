@@ -1,5 +1,4 @@
 require_relative 'node'
-require 'pry'
 
 class LinkedList
   attr_accessor :head
@@ -13,10 +12,10 @@ class LinkedList
       return 0
     end
     count = 1
-    currentNode = @head
-      until currentNode.next == nil
+    current_node = @head
+      until current_node.next == nil
         count+= 1
-        currentNode = currentNode.next
+        current_node = current_node.next
       end
     return count
   end
@@ -38,11 +37,11 @@ class LinkedList
   end
 
   def get(index)
-    currentNode = @head
+    current_node = @head
     index.times do
-      currentNode = currentNode.next
+      current_node = current_node.next
     end
-    return currentNode
+    return current_node
   end
 
   def delete(index)
