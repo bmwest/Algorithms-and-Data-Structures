@@ -1,4 +1,5 @@
 require_relative 'node'
+require 'pry'
 
 class LinkedList
   attr_accessor :head
@@ -66,14 +67,41 @@ class LinkedList
 
   def reverse
     current_node = @head
-    next_node = nil
-    prev_node = nil
-    while current_node != nil
-      next_node = current_node.next
-      current_node.next = prev_node
-      prev_node = current_node
-      current_node = next_node
+    # binding.pry
+    next_node = current_node.next
+    prev_node = current_node
+    current_node.next = prev_node
+    current_node = next_node
+    if current_node.next == nil
+      return
     end
-    @head = prev_node
+    reverse
   end
 end
+
+list = LinkedList.new()
+node = Node.new("zero")
+node2 = Node.new("one")
+node3 = Node.new("two")
+node4 = Node.new("three")
+node5 = Node.new("four")
+
+list.insert(0, node)
+list.insert(1, node2)
+list.insert(2, node3)
+list.insert(3, node4)
+list.insert(4, node5)
+
+list.get(0).data
+list.get(1).data
+list.get(2).data
+list.get(3).data
+list.get(4).data
+
+list.reverse
+
+list.get(0).data
+list.get(1).data
+list.get(2).data
+list.get(3).data
+list.get(4).data
